@@ -9,7 +9,7 @@ const ToDoContainer = ({ toDos, title, change }) => {
 
 
     return (
-        <Box minH="90vh" p="0.5rem" minW="50vw">
+        <Box minH="90vh" p="0.5rem" minW="48vw">
             <Heading as="h2" textAlign="center">{title}</Heading>
             <Wrap>
                 {toDos.map(toDo => (

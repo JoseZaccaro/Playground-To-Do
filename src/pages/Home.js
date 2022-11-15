@@ -38,7 +38,7 @@ const Home = () => {
 
 
   return (
-    <Flex bg="whatsapp.50">
+    <Flex bg="whatsapp.50" pt="2.5rem" px="1vw">
       <ToDoContainer toDos={toDos.filter(todo => !todo.done)} title="To Do" change={filterDone}/>
       <ToDoContainer toDos={toDos.filter(todo => todo.done)} title="Done" change={filterDone}/>
     </Flex>

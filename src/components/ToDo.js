@@ -10,8 +10,11 @@ const ToDo = (props) => {
         <Heading as="h2" alignSelf="flex-start" justifySelf="flex-start" size="1xl" textColor={done && "green"} borderBottom="2px" borderStyle="solid" borderColor="blackAlpha.700" mb="4" textDecoration={done && "line-through"}>
           {name}
         </Heading>
-
+        <Text alignSelf="flex-start" wordBreak="break-word" maxH="2xs" overflowY="auto" pr="2">
+         {toDo?.description}
+        </Text>
       </Flex>
+
       <Button alignSelf="flex-end" variant={done ? "solid" :'outline'} colorScheme={done ? "red" : "green"} onClick={()=>change(toDo)}> {done ? "To Do": "Done"} </Button>
     </Flex>
   )
