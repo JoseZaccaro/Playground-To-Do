@@ -12,7 +12,9 @@ const ToDo = (props) => {
   const change = () => {
     dispatch(doneToDo(toDo))
   }
-
+  const deleteToDo = (exd) =>{
+    console.log(exd)
+  }
   return (
     <Flex w={{ sm: "100%", lg: "48%", "2xl": "32%" }} h="10rem" border="2px" borderStyle="solid" borderRadius="xl" p="6" justifyContent="space-between">
       <Flex w="70%" direction="column">
@@ -25,6 +27,7 @@ const ToDo = (props) => {
       </Flex>
 
       <Button alignSelf="flex-end" variant='outline' colorScheme="green" onClick={change}> {toDo.done ? "To Do" : "Done"} </Button>
+      <Button alignSelf="flex-end" variant="solid" colorScheme="red" onClick={()=>deleteToDo(toDo._id)}> Delete To Do </Button>
     </Flex>
   )
 }

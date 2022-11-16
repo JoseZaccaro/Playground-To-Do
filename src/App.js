@@ -16,11 +16,11 @@ function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
-      <Header/>
+        <Header />
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/form' element={<Form/>}/>
-          <Route path='/log' element={<LogOn/>}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/form' element={<Form />} />
+          <Route path='/log' element={<LogOn />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

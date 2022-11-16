@@ -7,9 +7,9 @@ const { getToDos, doneToDo, addToDo } = toDoActions
 const { alerta } = alertActions
 const initialState = {
     toDos: [],
-    alerta:{
-        show:false,
-        texto:''
+    alerta: {
+        show: false,
+        texto: ''
     }
 }
 
@@ -45,7 +45,7 @@ const toDoReducer = createReducer(initialState,
 
             .addCase(alerta, (state, action) => {
                 console.log(action.payload)
-                return {...state, alerta: {show:true, texto:action.payload}}
+                return { ...state, alerta: { show: true, texto: action.payload } }
             })
 
     })
