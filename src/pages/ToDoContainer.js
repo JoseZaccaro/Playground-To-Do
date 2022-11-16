@@ -4,7 +4,7 @@ import ToDo from './../components/ToDo';
 
 
 
-const ToDoContainer = ({ toDos, title, change }) => {
+const ToDoContainer = ({ toDos, title }) => {
 
 
 
@@ -13,7 +13,7 @@ const ToDoContainer = ({ toDos, title, change }) => {
             <Heading as="h2" textAlign="center">{title}</Heading>
             <Wrap>
                 {toDos.map(toDo => (
-                    <ToDo key={toDo._id} toDo={toDo} change={change}/>
+                    <ToDo key={toDo._id} toDo={toDo}/>
                 ))}
             </Wrap>
         </Box>

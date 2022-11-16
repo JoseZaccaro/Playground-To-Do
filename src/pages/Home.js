@@ -1,46 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Flex } from '@chakra-ui/react';
 import ToDoContainer from './ToDoContainer';
+import { useDispatch, useSelector } from 'react-redux'
+import toDoActions from '../redux/actions/toDoActions';
 
 const Home = () => {
-  const [toDos, setToDos] = useState([])
+  // const [toDos, setToDos] = useState([])
+
+  const dispatch = useDispatch()
+  
+  const { getToDos } = toDoActions;
+  const { toDos } = useSelector((state) => state.toDo);
 
   useEffect(() => {
-    const fetchToDo = async function () {
-      try {
 
-        const pedido = await fetch("https://lista-productos-playground.herokuapp.com/api/productos")
-        const data = await pedido.json()
+    // fetchToDo()
 
-        const todos = data.respuesta.map(todo => {
-          todo.done = false;
-          return todo;
-        })
+    dispatch(getToDos())
 
-        setToDos(todos)
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchToDo()
   }, [])
 
-  const filterDone = (todo) => {
-    const filteredToDos = toDos.filter(element => element._id !== todo._id)
-    let modifiedTodo = todo
-    console.log(modifiedTodo);
-    modifiedTodo.done =  modifiedTodo.done ? false : true;
-    console.log(modifiedTodo);
-    filteredToDos.push(modifiedTodo)
-    setToDos(filteredToDos)
-  }
 
 
+  console.log(toDos)
   return (
     <Flex>
-      <ToDoContainer toDos={toDos.filter(todo => !todo.done)} title="To Do" change={filterDone}/>
-      <ToDoContainer toDos={toDos.filter(todo => todo.done)} title="Done" change={filterDone}/>
+      <ToDoContainer toDos={toDos.filter(todo => !todo.done)} title="To Do" />
+      <ToDoContainer toDos={toDos.filter(todo => todo.done)} title="Done" />
     </Flex>
   )
 }
