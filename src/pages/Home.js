@@ -8,16 +8,16 @@ const Home = () => {
   // const [toDos, setToDos] = useState([])
 
   const dispatch = useDispatch()
-  
+
   const { getToDos } = toDoActions;
   const { toDos } = useSelector((state) => state.toDo);
 
   useEffect(() => {
 
     // fetchToDo()
-
-    dispatch(getToDos())
-
+    if (toDos.length === 0) {
+      dispatch(getToDos())
+    }
   }, [])
 
 
