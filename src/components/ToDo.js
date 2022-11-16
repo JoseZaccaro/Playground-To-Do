@@ -15,7 +15,7 @@ const ToDo = (props) => {
         </Text>
       </Flex>
 
-      <Button alignSelf="flex-end" variant={done ? "solid" :'outline'} colorScheme={done ? "teal" : "green"} onClick={()=>change(toDo)}> {done ? "To Do": "Done"} </Button>
+      <Button alignSelf="flex-end" mr="1rem" variant={done ? "solid" :'outline'} colorScheme={done ? "teal" : "green"} onClick={()=>change(toDo)}> {done ? "To Do": "Done"} </Button>
       <Button alignSelf="flex-end" variant="solid" colorScheme="red" onClick={()=>deleteToDo(toDo._id)}> Delete To Do </Button>
     </Flex>
   )
