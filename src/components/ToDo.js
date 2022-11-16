@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react';
 
 const ToDo = (props) => {
-  const { change, toDo } = props;
+  const { change, toDo, deleteToDo } = props;
   const { name, done } = props.toDo
   return (
     <Flex w={{sm:"100%",lg:"48%" ,"2xl":"32%"}} h="10rem" border="2px" borderStyle="solid" borderRadius="xl" p="6" justifyContent="space-between">
@@ -15,7 +15,8 @@ const ToDo = (props) => {
         </Text>
       </Flex>
 
-      <Button alignSelf="flex-end" variant={done ? "solid" :'outline'} colorScheme={done ? "red" : "green"} onClick={()=>change(toDo)}> {done ? "To Do": "Done"} </Button>
+      <Button alignSelf="flex-end" variant={done ? "solid" :'outline'} colorScheme={done ? "teal" : "green"} onClick={()=>change(toDo)}> {done ? "To Do": "Done"} </Button>
+      <Button alignSelf="flex-end" variant="solid" colorScheme="red" onClick={()=>deleteToDo(toDo._id)}> Delete To Do </Button>
     </Flex>
   )
 }
